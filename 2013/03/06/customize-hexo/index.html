@@ -1,0 +1,702 @@
+<!doctype html>
+<html class="theme-next   use-motion ">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  
+    <link href='//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+  
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.4.5.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="hexo," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="窄門" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.2" />
+
+
+
+
+
+
+<meta name="description" content="Hexo是个很好的博客，但是由于作者是台湾人，所以评论使用的是disqus，分享的相关代码的位置在使用的是addthis。很可惜，评论、分享时使用的资本主义的那一套社交网络都无法使用(Just you know why~~~)。
+所以，拿起铁锹，让我们来对Hexo进行社会主义大改造！">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo的社会主义改造">
+<meta property="og:url" content="http://tsgzj.me/2013/03/06/customize-hexo/index.html">
+<meta property="og:site_name" content="窄門">
+<meta property="og:description" content="Hexo是个很好的博客，但是由于作者是台湾人，所以评论使用的是disqus，分享的相关代码的位置在使用的是addthis。很可惜，评论、分享时使用的资本主义的那一套社交网络都无法使用(Just you know why~~~)。
+所以，拿起铁锹，让我们来对Hexo进行社会主义大改造！">
+<meta property="og:image" content="http://d.pr/i/Thlw.png">
+<meta property="og:updated_time" content="2013-11-20T07:02:45.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo的社会主义改造">
+<meta name="twitter:description" content="Hexo是个很好的博客，但是由于作者是台湾人，所以评论使用的是disqus，分享的相关代码的位置在使用的是addthis。很可惜，评论、分享时使用的资本主义的那一套社交网络都无法使用(Just you know why~~~)。
+所以，拿起铁锹，让我们来对Hexo进行社会主义大改造！">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: '',
+    sidebar: 'hide',
+    motion: true
+  };
+</script>
+
+  <title> Hexo的社会主义改造 | 窄門 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en_US">
+
+  <!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+  
+
+
+
+
+
+
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">窄門</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">不能吃太多变胖哦，会被杀掉的！</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首頁
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            歸檔
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            標籤
+          </a>
+        </li>
+      
+
+      
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content">
+          
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Hexo的社会主义改造
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            發表於
+            <time itemprop="dateCreated" datetime="2013-03-06T19:27:25-08:00" content="Mar 6 2013">
+              Mar 6 2013
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp; 分類於
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Tips/" itemprop="url" rel="index">
+                    <span itemprop="name">Tips</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2013/03/06/customize-hexo/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2013/03/06/customize-hexo/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <span itemprop="articleBody"><p>Hexo&#x662F;&#x4E2A;&#x5F88;&#x597D;&#x7684;&#x535A;&#x5BA2;&#xFF0C;&#x4F46;&#x662F;&#x7531;&#x4E8E;&#x4F5C;&#x8005;&#x662F;&#x53F0;&#x6E7E;&#x4EBA;&#xFF0C;&#x6240;&#x4EE5;&#x8BC4;&#x8BBA;&#x4F7F;&#x7528;&#x7684;&#x662F;<a href="http://disqus.com/" target="_blank" rel="external">disqus</a>&#xFF0C;&#x5206;&#x4EAB;&#x7684;&#x76F8;&#x5173;&#x4EE3;&#x7801;&#x7684;&#x4F4D;&#x7F6E;&#x5728;&#x4F7F;&#x7528;&#x7684;&#x662F;<a href="http://www.addthis.com/" target="_blank" rel="external">addthis</a>&#x3002;&#x5F88;&#x53EF;&#x60DC;&#xFF0C;&#x8BC4;&#x8BBA;&#x3001;&#x5206;&#x4EAB;&#x65F6;&#x4F7F;&#x7528;&#x7684;<br>&#x8D44;&#x672C;&#x4E3B;&#x4E49;&#x7684;&#x90A3;&#x4E00;&#x5957;&#x793E;&#x4EA4;&#x7F51;&#x7EDC;&#x90FD;&#x65E0;&#x6CD5;&#x4F7F;&#x7528;<strong><em>(Just you know why~~~)</em></strong>&#x3002;</p>
+<p>&#x6240;&#x4EE5;&#xFF0C;&#x62FF;&#x8D77;&#x94C1;&#x9539;&#xFF0C;&#x8BA9;&#x6211;&#x4EEC;&#x6765;&#x5BF9;Hexo&#x8FDB;&#x884C;&#x793E;&#x4F1A;&#x4E3B;&#x4E49;&#x5927;&#x6539;&#x9020;&#xFF01;</p>
+<a id="more"></a> 
+<p>&#x9996;&#x5148;&#x6211;&#x4EEC;&#x8981;&#x627E;&#x5230;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x7684;&#x670D;&#x52A1;&#x63D0;&#x4F9B;&#x5546;&#xFF0C;&#x5206;&#x4EAB;&#x6211;&#x9009;&#x62E9;&#x4E86;<br><a href="http://www.jiathis.com/" target="_blank" rel="external">&#x52A0;&#x7F51;</a>&#xFF0C;&#x8BC4;&#x8BBA;&#x9009;&#x62E9;&#x4E86;<br><a href="http://dev.duoshuo.com/" target="_blank" rel="external">&#x591A;&#x8BF4;</a>&#x3002;</p>
+<p>&#x4E4B;&#x540E;&#x5C31;&#x662F;&#x627E;&#x5230;&#x4F4D;&#x7F6E;&#xFF0C;&#x66FF;&#x6362;&#x4EE3;&#x7801;&#x5373;&#x53EF;&#x3002;</p>
+<p>###&#x8BC4;&#x8BBA;<br>&#x4EE5;&#x6211;&#x4F7F;&#x7528;&#x7684;light&#x8FD9;&#x4E2A;theme&#x6765;&#x8BF4;&#xFF0C;&#x5C31;&#x662F;<br><code>themes/light/layout/_patrial/comment.ejs</code>&#x8FD9;&#x91CC;&#xFF0C;&#x627E;&#x5230;disqus&#x7684;&#x4EE3;&#x7801;&#xFF0C;&#x66FF;&#x6362;<br>&#x6210;&#x591A;&#x8BF4;&#x63D0;&#x4F9B;&#x7684;&#x901A;&#x7528;&#x4EE3;&#x7801;&#x5373;&#x53EF;&#x3002;&#x9700;&#x8981;&#x4E3B;&#x4E49;&#x7684;&#x662F;&#xFF0C;&#x56E0;&#x4E3A;comment&#x5728;&#x6CA1;&#x6709;&#x7ED1;&#x5B9A;disqus&#x7684;<br>&#x60C5;&#x51B5;&#x4E0B;&#x662F;&#x9ED8;&#x8BA4;&#x4E0D;&#x663E;&#x793A;&#x7684;&#xFF0C;&#x6240;&#x4EE5;&#x5728;comment.ejs&#x7684;&#x7B2C;&#x4E00;&#x884C;&#xFF0C;&#x8BF7;&#x628A;<br><code>config.disqus_shortname &amp;&amp;</code>&#x5220;&#x6389;&#xFF0C;&#x6216;&#x8005;&#x5728;root/_config.yml&#x91CC;&#x9762;&#xFF0C;&#x968F;&#x610F;&#x586B;&#x5199;&#x4E00;&#x4E2A;disqus<br>shortname&#xFF0C;&#x4FDD;&#x8BC1;&#x80FD;&#x591F;&#x663E;&#x793A;comments&#x5373;&#x53EF;&#x3002;</p>
+<p>###&#x5206;&#x4EAB;<br>&#x5206;&#x4EAB;&#x7684;&#x76F8;&#x5173;&#x4EE3;&#x7801;&#x7684;&#x4F4D;&#x7F6E;&#x5728;<code>themes/light/layout/_partial/article.ejs</code>&#x7B2C;35&#x884C;&#xFF0C;&#x5C06;<code>&lt;%-partial(&apos;post/share&apos;)%&gt;</code>&#x4E00;&#x53E5;&#x5220;&#x9664;&#xFF0C;&#x5E76;&#x7C98;&#x8D34;&#x4E0A;&#x52A0;&#x7F51;&#x751F;&#x6210;&#x7684;&#x4EE3;&#x7801;&#x5373;&#x53EF;&#x3002;</p>
+<p>&#x4E0D;&#x8FC7;&#xFF0C;&#x8BDD;&#x8BF4;&#x56DE;&#x6765;&#xFF0C;disqus&#x548C;addthis&#x7684;&#x89C6;&#x89C9;&#x6548;&#x679C;&#x6BD4;&#x52A0;&#x7F51;&#x548C;&#x591A;&#x8BF4;&#x597D;&#x591A;&#x4E86;&#xFF08;&#x89C1;&#x4E0B;&#x56FE;&#xFF09;&#xFF0C;&#x4E07;&#x6076;&#x7684;&#x8D44;<br>&#x672C;&#x4E3B;&#x4E49;&#xFF01;&#xFF01;</p>
+<p><img src="http://d.pr/i/Thlw.png" alt="Hexo"></p>
+</span>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/hexo/" rel="tag">#hexo</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2013/03/06/nowplaying-for-ituns/" rel="prev" title="NowPlaying for iTunes">
+                NowPlaying for iTunes <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+        </div>
+
+        
+
+
+        
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+      </div>
+    
+  </div>
+
+
+      </div>
+
+      
+        
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目錄
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            本站概覽
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" src="/images/default_avatar.jpg" alt="Tsgzj" itemprop="image"/>
+          <p class="site-author-name" itemprop="name">Tsgzj</p>
+        </div>
+        <p class="site-description motion-element" itemprop="description">不能吃太多变胖哦，会被杀掉的！</p>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">15</span>
+              <span class="site-state-item-name">文章</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            
+              <span class="site-state-item-count">4</span>
+              <span class="site-state-item-name">分類</span>
+              
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">6</span>
+              <span class="site-state-item-name">標籤</span>
+              </a>
+          </div>
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/Tsgzj" target="_blank">
+                  
+                    <i class="fa fa-Tsgzj"></i> GitHub
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/tsgzj" target="_blank">
+                  
+                    <i class="fa fa-tsgzj"></i> Twitter
+                  
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator">
+            <i class="fa fa-angle-double-up"></i>
+          </div>
+          <div class="post-toc">
+            
+              
+            
+            
+              <p class="post-toc-empty">此文章未包含目錄</p>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator">
+            <i class="fa fa-angle-double-down"></i>
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+      
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2015</span>
+  <span class="with-love">
+    <i class="icon-next-heart fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Tsgzj</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 強力驅動
+</div>
+
+<div class="theme-info">
+  主題 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+
+  
+    
+    
+
+  
+
+    <script type="text/javascript">
+      var disqus_shortname = 'tsgzj';
+      var disqus_identifier = '2013/03/06/customize-hexo/';
+      var disqus_title = 'Hexo的社会主义改造';
+      var disqus_url = 'http://tsgzj.me/2013/03/06/customize-hexo/';
+
+      function run_disqus_script(disqus_script){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      }
+
+      run_disqus_script('count.js');
+      
+        run_disqus_script('embed.js');
+      
+    </script>
+  
+
+
+  
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.5.2"></script>
+
+
+  <script type="text/javascript" src="/js/helpers.js?v=0.4.5.2"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+<script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+<script type="text/javascript" src="/js/motion.js?v=0.4.5.2" id="motion.global"></script>
+
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.5.2" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 1 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    motionMiddleWares.sidebar = function () {
+      var $tocContent = $('.post-toc-content');
+      if (CONFIG.sidebar === 'post') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          displaySidebar();
+        }
+      }
+    };
+  });
+</script>
+
+
+
+  <script type="text/javascript" src="/js/bootstrap.js"></script>
+
+  
+  
+
+  
+  
+
+</body>
+</html>

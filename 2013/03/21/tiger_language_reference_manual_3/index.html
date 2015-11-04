@@ -1,0 +1,722 @@
+<!doctype html>
+<html class="theme-next   use-motion ">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  
+    <link href='//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+  
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.4.5.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Tiger," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="窄門" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.2" />
+
+
+
+
+
+
+<meta name="description" content="接上
+####2.2 返回值函数调用、赋值、if-then、while、break语句没有返回值，有些情况下，if-thenelse语句也没有返回值。在in和end之间为空的let表达式也没有返回值。没有返回值的语句不允许出现在需要有值的语句中，如(a := b) + c，为非法语句。
+零个或多个括号组成的由分号分割表达式如（a := 3; b := a），将会按照次序求值，并且返回最后一个表达式">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Tiger语言参考手册（3）">
+<meta property="og:url" content="http://tsgzj.me/2013/03/21/tiger_language_reference_manual_3/index.html">
+<meta property="og:site_name" content="窄門">
+<meta property="og:description" content="接上
+####2.2 返回值函数调用、赋值、if-then、while、break语句没有返回值，有些情况下，if-thenelse语句也没有返回值。在in和end之间为空的let表达式也没有返回值。没有返回值的语句不允许出现在需要有值的语句中，如(a := b) + c，为非法语句。
+零个或多个括号组成的由分号分割表达式如（a := 3; b := a），将会按照次序求值，并且返回最后一个表达式">
+<meta property="og:updated_time" content="2013-11-20T07:02:45.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Tiger语言参考手册（3）">
+<meta name="twitter:description" content="接上
+####2.2 返回值函数调用、赋值、if-then、while、break语句没有返回值，有些情况下，if-thenelse语句也没有返回值。在in和end之间为空的let表达式也没有返回值。没有返回值的语句不允许出现在需要有值的语句中，如(a := b) + c，为非法语句。
+零个或多个括号组成的由分号分割表达式如（a := 3; b := a），将会按照次序求值，并且返回最后一个表达式">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: '',
+    sidebar: 'hide',
+    motion: true
+  };
+</script>
+
+  <title> Tiger语言参考手册（3） | 窄門 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en_US">
+
+  <!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+  
+
+
+
+
+
+
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">窄門</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">不能吃太多变胖哦，会被杀掉的！</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首頁
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            歸檔
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            標籤
+          </a>
+        </li>
+      
+
+      
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content">
+          
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Tiger语言参考手册（3）
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            發表於
+            <time itemprop="dateCreated" datetime="2013-03-21T10:12:08-07:00" content="Mar 21 2013">
+              Mar 21 2013
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp; 分類於
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Compiler/" itemprop="url" rel="index">
+                    <span itemprop="name">Compiler</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2013/03/21/tiger_language_reference_manual_3/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2013/03/21/tiger_language_reference_manual_3/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <span itemprop="articleBody"><p><strong>&#x63A5;&#x4E0A;</strong></p>
+<p>####2.2 &#x8FD4;&#x56DE;&#x503C;<br>&#x51FD;&#x6570;&#x8C03;&#x7528;&#x3001;&#x8D4B;&#x503C;&#x3001;<code>if-then</code>&#x3001;<code>while</code>&#x3001;<code>break</code>&#x8BED;&#x53E5;&#x6CA1;&#x6709;&#x8FD4;&#x56DE;&#x503C;&#xFF0C;&#x6709;&#x4E9B;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;<code>if-thenelse</code>&#x8BED;&#x53E5;&#x4E5F;&#x6CA1;&#x6709;&#x8FD4;&#x56DE;&#x503C;&#x3002;&#x5728;<code>in</code>&#x548C;<code>end</code>&#x4E4B;&#x95F4;&#x4E3A;&#x7A7A;&#x7684;<code>let</code>&#x8868;&#x8FBE;&#x5F0F;&#x4E5F;&#x6CA1;&#x6709;&#x8FD4;&#x56DE;&#x503C;&#x3002;&#x6CA1;&#x6709;&#x8FD4;&#x56DE;&#x503C;&#x7684;&#x8BED;&#x53E5;&#x4E0D;&#x5141;&#x8BB8;&#x51FA;&#x73B0;&#x5728;&#x9700;&#x8981;&#x6709;&#x503C;&#x7684;&#x8BED;&#x53E5;&#x4E2D;&#xFF0C;&#x5982;<code>(a := b) + c</code>&#xFF0C;&#x4E3A;&#x975E;&#x6CD5;&#x8BED;&#x53E5;&#x3002;</p>
+<p>&#x96F6;&#x4E2A;&#x6216;&#x591A;&#x4E2A;&#x62EC;&#x53F7;&#x7EC4;&#x6210;&#x7684;&#x7531;&#x5206;&#x53F7;&#x5206;&#x5272;&#x8868;&#x8FBE;&#x5F0F;&#x5982;&#xFF08;<code>a := 3; b := a</code>&#xFF09;&#xFF0C;&#x5C06;&#x4F1A;&#x6309;&#x7167;&#x6B21;&#x5E8F;&#x6C42;&#x503C;&#xFF0C;&#x5E76;&#x4E14;&#x8FD4;&#x56DE;&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x8868;&#x8FBE;&#x5F0F;&#x7684;&#x503C;&#x3002;&#x5982;&#x679C;&#x5B58;&#x5728;&#x7684;&#x8BDD;&#xFF0C;&#x4E00;&#x5BF9;&#x7A7A;&#x62EC;&#x53F7;&#x662F;&#x5141;&#x8BB8;&#x7684;&#xFF0C;&#x8FD9;&#x5C06;&#x6CA1;&#x6709;&#x8FD4;&#x56DE;&#x503C;&#x3002;</p>
+<a id="more"></a>
+<p>####2.3 &#x6570;&#x7EC4;&#x548C;&#x8BB0;&#x5F55;</p>
+<p>&#x8868;&#x8FBE;&#x5F0F;<code>type-id {field-list}</code>&#xFF08;&#x5141;&#x8BB8;&#x6709;&#x96F6;&#x4E2A;&#x6216;&#x591A;&#x4E2A;field&#xFF09;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x8BB0;&#x5F55;&#x3002;<code>field</code>&#x7684;&#x540D;&#x5B57;&#x3001;&#x8868;&#x8FBE;&#x5F0F;&#x7C7B;&#x578B;&#x4EE5;&#x53CA;&#x987A;&#x5E8F;&#x8981;&#x6C42;&#x5B8C;&#x5168;&#x5339;&#x914D;&#x7ED9;&#x51FA;&#x7684;&#x8BB0;&#x5F55;&#x7C7B;&#x578B;&#x3002;</p>
+<p>&#x8868;&#x8FBE;&#x5F0F;<code>type-id [expr1] of expr2</code>&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x6570;&#x7EC4;&#xFF0C;&#x8BE5;&#x6570;&#x7EC4;&#x7684;&#x5927;&#x5C0F;&#x7531;&#x62EC;&#x53F7;&#x5185;&#x7684;&#x8868;&#x8FBE;&#x5F0F;<code>expr1</code>&#x7ED9;&#x51FA;&#xFF0C;&#x6570;&#x7EC4;&#x4E2D;&#x5143;&#x7D20;&#x7684;&#x521D;&#x59CB;&#x503C;&#x7531;of&#x540E;&#x7684;&#x8868;&#x8FBE;&#x5F0F;<code>expr2</code>&#x8BF6;&#x51FA;&#x3002;&#x8FD9;&#x4E24;&#x4E2A;&#x8868;&#x8FBE;&#x5F0F;&#x5C06;&#x6309;&#x7167;&#x4ED6;&#x4EEC;&#x51FA;&#x73B0;&#x7684;&#x987A;&#x5E8F;&#x88AB;&#x6C42;&#x503C;&#x3002;</p>
+<p>####2.4 &#x51FD;&#x6570;&#x8C03;&#x7528;</p>
+<p>&#x51FD;&#x6570;&#x662F;&#x4E00;&#x4E2A;&#x8868;&#x8FBE;&#x5F0F;<code>id (expr-list)</code>&#xFF0C;&#x53EF;&#x4EE5;&#x542B;&#x6709;&#x96F6;&#x4E2A;&#x6216;&#x591A;&#x4E2A;&#x4EE5;&#x9017;&#x53F7;&#x5206;&#x9694;&#x7684;&#x8868;&#x8FBE;&#x53C2;&#x6570;&#x3002;&#x5F53;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x88AB;&#x8C03;&#x7528;&#x65F6;&#xFF0C;&#x5B9E;&#x53C2;&#x5C06;&#x88AB;&#x4ECE;&#x5DE6;&#x5230;&#x53F3;&#x88AB;&#x6C42;&#x503C;&#x5E76;&#x4E14;&#x6309;&#x7167;&#x9759;&#x6001;&#x4F5C;&#x7528;&#x57DF;&#x89C4;&#x5219;&#x88AB;&#x7ED1;&#x5B9A;&#x5230;&#x5F62;&#x53C2;&#x4E0A;&#x3002;</p>
+<p>####2.5 &#x64CD;&#x4F5C;&#x7B26;</p>
+<p>&#x4E8C;&#x5143;&#x64CD;&#x4F5C;&#x7B26;&#x6709;<code>+ - * / = &lt;&gt; &lt; &gt; &lt;= &gt;= &amp; |</code></p>
+<p>&#x62EC;&#x53F7;&#x7EC4;&#x4EE5;&#x901A;&#x5E38;&#x7684;&#x65B9;&#x5F0F;&#x8868;&#x8FBE;&#x3002;</p>
+<p>&#x5F00;&#x5934;&#x7684;&#x51CF;&#x53F7;&#x5C06;&#x4E00;&#x4E2A;&#x6574;&#x6570;&#x8868;&#x8FBE;&#x5F0F;&#x53D6;&#x8D1F;&#x3002;</p>
+<p>&#x4E8C;&#x5143;&#x64CD;&#x4F5C;&#x7B26;<code>+ - * /</code>&#x9700;&#x8981;&#x6574;&#x6570;&#x8FD0;&#x7B97;&#x5143;&#xFF0C;&#x5E76;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x6574;&#x6570;&#x7684;&#x7ED3;&#x679C;&#x3002;</p>
+<p>&#x4E8C;&#x5143;&#x8FD0;&#x7B97;&#x7B26;<code>&gt; &lt; &gt;= &lt;=</code>&#x6BD4;&#x8F83;&#x5B83;&#x4EEC;&#x7684;&#x64CD;&#x4F5C;&#x6570;&#xFF0C;&#x53EF;&#x4EE5;&#x662F;&#x540C;&#x662F;&#x6574;&#x6570;&#x6216;&#x540C;&#x662F;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x5982;&#x679C;&#x6BD4;&#x8F83;&#x6210;&#x7ACB;&#xFF0C;&#x8FD4;&#x56DE;&#x6574;&#x6570;1&#xFF0C;&#x5426;&#x5219;&#x4E3A;0&#x3002;&#x4F7F;&#x7528;ASCII&#x5B57;&#x5178;&#x987A;&#x5E8F;&#x8FDB;&#x884C;&#x5B57;&#x7B26;&#x4E32;&#x6BD4;&#x8F83;&#x3002;</p>
+<p>&#x4E8C;&#x5143;&#x8FD0;&#x7B97;&#x7B26;<code>= &lt;&gt;</code>&#x53EF;&#x4EE5;&#x6BD4;&#x8F83;&#x4EFB;&#x610F;&#x4E24;&#x4E2A;&#x5177;&#x6709;&#x76F8;&#x540C;&#x7C7B;&#x578B;&#x64CD;&#x4F5C;&#x6570;&#xFF0C;&#x5E76;&#x8FD4;&#x56DE;&#x6574;&#x6570;0&#x6216;1&#x3002;&#x5BF9;&#x6574;&#x6570;&#x6765;&#x8BF4;&#xFF0C;&#x5982;&#x679C;&#x5177;&#x6709;&#x76F8;&#x540C;&#x7684;&#x503C;&#x5219;&#x76F8;&#x7B49;&#x3002;&#x5BF9;&#x5B57;&#x7B26;&#x4E32;&#x6765;&#x8BF4;&#xFF0C;&#x5982;&#x679C;&#x5B83;&#x4EEC;&#x5305;&#x542B;&#x76F8;&#x540C;&#x7684;&#x5B57;&#x7B26;&#x5219;&#x76F8;&#x7B49;&#x3002;&#x5BF9;&#x4E8E;&#x8BB0;&#x5F55;&#x7C7B;&#x578B;&#x6765;&#x8BF4;&#xFF0C;&#x5982;&#x679C;&#x5B83;&#x4EEC;&#x5F15;&#x7528;&#x76F8;&#x540C;&#x7684;&#x8BB0;&#x5F55;&#x5219;&#x76F8;&#x7B49;&#x3002;&#x5BF9;&#x4E8E;&#x6570;&#x7EC4;&#x6765;&#x8BF4;&#xFF0C;&#x5982;&#x679C;&#x5B83;&#x4EEC;&#x8868;&#x793A;&#x76F8;&#x540C;&#x7684;&#x6570;&#x7EC4;&#x5219;&#x76F8;&#x7B49;&#x3002;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#xFF0C;&#x8BB0;&#x5F55;&#x548C;&#x6570;&#x7EC4;&#x76F8;&#x6BD4;&#xFF0C;&#x4F7F;&#x7528;&#x201C;&#x53C2;&#x8003;&#x201D;&#x6216;&#x201C;&#x6307;&#x9488;&#x201D;&#x6765;&#x5224;&#x65AD;&#x662F;&#x5426;&#x76F8;&#x7B49;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x5185;&#x5BB9;&#x3002;</p>
+<p>&#x903B;&#x8F91;&#x8FD0;&#x7B97;&#x7B26;<code>&#xFF06; |</code>&#x4F7F;&#x7528;&#x60F0;&#x6027;&#x6C42;&#x503C;&#x3002;&#x5373;&#x5982;&#x679C;&#x5DE6;&#x8FB9;&#x5DF2;&#x7ECF;&#x80FD;&#x591F;&#x786E;&#x5B9A;&#x8868;&#x8FBE;&#x5F0F;&#x7684;&#x503C;&#x65F6;&#x5C06;&#x4E0D;&#x5BF9;&#x53F3;&#x8FB9;&#x6C42;&#x503C;&#x3002;0&#x8868;&#x793A;<code>false</code>&#xFF0C;<em>&#x5176;&#x4ED6;&#x6240;&#x6709;&#x503C;</em>&#x90FD;&#x8868;&#x793A;<code>true</code>&#x3002;</p>
+<p>&#x4E00;&#x5143;&#x51CF;&#x53F7;&#x5177;&#x6709;&#x6700;&#x9AD8;&#x7684;&#x4F18;&#x5148;&#x7EA7;&#xFF0C;&#x5176;&#x6B21;&#x662F;<code>* /</code>&#xFF0C;&#x7136;&#x540E;&#x662F;<code>+ -</code>&#xFF0C;&#x518D;&#x6B21;&#x662F;<code>= &lt;&gt; &gt; &lt; &gt; = &lt;=</code>&#xFF0C;&#x4E4B;&#x540E;<code>&amp; |</code>&#xFF0C;&#x6700;&#x540E;&#x662F;<code>&#xFF1A;=</code>&#x3002;</p>
+<p><code>+ - * /</code>&#x662F;&#x5DE6;&#x5173;&#x8054;&#x7684;&#xFF0C;&#x800C;&#x6BD4;&#x8F83;&#x8FD0;&#x7B97;&#x7B26;&#x662F;&#x4E0D;&#x5173;&#x8054;&#x7684;&#xFF0C;&#x4F8B;&#x5982;<code>a = b = c</code>&#x662F;&#x975E;&#x6CD5;&#x7684;&#xFF0C;&#x800C;<code>a = (b = c)</code>&#x662F;&#x5408;&#x6CD5;&#x7684;&#x3002;</p>
+<p>####2.6 &#x8D4B;&#x503C;</p>
+<p>&#x8D4B;&#x503C;&#x8868;&#x8FBE;&#x5F0F;<code>lvalue := expr</code>&#x9996;&#x5148;&#x8BA1;&#x7B97;<code>expr</code>&#x7684;&#x503C;&#xFF0C;&#x4E4B;&#x540E;&#x518D;&#x5C06;&#x503C;&#x4E0E;<code>lvalue</code>&#x7ED1;&#x5B9A;&#x3002;&#x8D4B;&#x503C;&#x8868;&#x8FBE;&#x503C;&#x6CA1;&#x6709;&#x8FD4;&#x56DE;&#x503C;&#xFF0C;&#x6240;&#x4EE5;&#x7C7B;&#x4F3C;&#x4E8E;<code>a := b := 1</code>&#x662F;&#x975E;&#x6CD5;&#x7684;&#x3002;</p>
+<p>&#x6570;&#x7EC4;&#x548C;&#x8BB0;&#x5F55;&#x7684;&#x8D4B;&#x503C;&#x4F7F;&#x7528;&#x5F15;&#x7528;&#x800C;&#x975E;&#x503C;&#x3002;&#x5BF9;&#x6570;&#x7EC4;&#x548C;&#x8BB0;&#x5F55;&#x8D4B;&#x503C;&#x5EFA;&#x7ACB;&#x4E00;&#x4E2A;&#x522B;&#x540D;&#xFF0C;&#x8868;&#x793A;&#x4E4B;&#x540E;&#x6240;&#x6709;&#x4E0E;&#x4E4B;&#x76F8;&#x5173;&#x7684;&#x53D8;&#x5316;&#x90FD;&#x4F1A;&#x53CD;&#x6620;&#x5728;&#x6240;&#x6709;&#x5F15;&#x7528;&#x7684;&#x5730;&#x65B9;&#x3002;&#x5411;&#x6570;&#x7EC4;&#x548C;&#x8BB0;&#x5F55;&#x4F20;&#x9012;&#x5B9E;&#x53C2;&#x662F;&#x7C7B;&#x4F3C;&#x7684;&#x3002;</p>
+<p>&#x8BB0;&#x5F55;&#x6216;&#x6570;&#x7EC4;&#x7684;&#x503C;&#x4ECE;&#x521B;&#x5EFA;&#x5230;&#x7A0B;&#x5E8F;&#x7EC8;&#x6B62;&#x90FD;&#x5B58;&#x5728;&#xFF0C;&#x5373;&#x4F7F;&#x5DF2;&#x7ECF;&#x79BB;&#x5F00;&#x4E86;&#x5B83;&#x7684;&#x5B9A;&#x4E49;&#x8303;&#x56F4;&#x3002;</p>
+</span>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Tiger/" rel="tag">#Tiger</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2013/03/20/tiger_language_reference_manual_2/" rel="next" title="Tiger语言参考手册（2）">
+                <i class="fa fa-chevron-left"></i> Tiger语言参考手册（2）
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2013/04/10/ml-lex_tutorial/" rel="prev" title="ML-Lex入门">
+                ML-Lex入门 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+        </div>
+
+        
+
+
+        
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+      </div>
+    
+  </div>
+
+
+      </div>
+
+      
+        
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目錄
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            本站概覽
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" src="/images/default_avatar.jpg" alt="Tsgzj" itemprop="image"/>
+          <p class="site-author-name" itemprop="name">Tsgzj</p>
+        </div>
+        <p class="site-description motion-element" itemprop="description">不能吃太多变胖哦，会被杀掉的！</p>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">15</span>
+              <span class="site-state-item-name">文章</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            
+              <span class="site-state-item-count">4</span>
+              <span class="site-state-item-name">分類</span>
+              
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">6</span>
+              <span class="site-state-item-name">標籤</span>
+              </a>
+          </div>
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/Tsgzj" target="_blank">
+                  
+                    <i class="fa fa-Tsgzj"></i> GitHub
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/tsgzj" target="_blank">
+                  
+                    <i class="fa fa-tsgzj"></i> Twitter
+                  
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator">
+            <i class="fa fa-angle-double-up"></i>
+          </div>
+          <div class="post-toc">
+            
+              
+            
+            
+              <p class="post-toc-empty">此文章未包含目錄</p>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator">
+            <i class="fa fa-angle-double-down"></i>
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+      
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2015</span>
+  <span class="with-love">
+    <i class="icon-next-heart fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Tsgzj</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 強力驅動
+</div>
+
+<div class="theme-info">
+  主題 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+
+  
+    
+    
+
+  
+
+    <script type="text/javascript">
+      var disqus_shortname = 'tsgzj';
+      var disqus_identifier = '2013/03/21/tiger_language_reference_manual_3/';
+      var disqus_title = 'Tiger语言参考手册（3）';
+      var disqus_url = 'http://tsgzj.me/2013/03/21/tiger_language_reference_manual_3/';
+
+      function run_disqus_script(disqus_script){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      }
+
+      run_disqus_script('count.js');
+      
+        run_disqus_script('embed.js');
+      
+    </script>
+  
+
+
+  
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.5.2"></script>
+
+
+  <script type="text/javascript" src="/js/helpers.js?v=0.4.5.2"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+<script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+<script type="text/javascript" src="/js/motion.js?v=0.4.5.2" id="motion.global"></script>
+
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.5.2" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 1 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    motionMiddleWares.sidebar = function () {
+      var $tocContent = $('.post-toc-content');
+      if (CONFIG.sidebar === 'post') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          displaySidebar();
+        }
+      }
+    };
+  });
+</script>
+
+
+
+  <script type="text/javascript" src="/js/bootstrap.js"></script>
+
+  
+  
+
+  
+  
+
+</body>
+</html>

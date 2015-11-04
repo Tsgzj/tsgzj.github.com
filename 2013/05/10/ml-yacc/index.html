@@ -1,0 +1,743 @@
+<!doctype html>
+<html class="theme-next   use-motion ">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  
+    <link href='//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+  
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.4.5.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="ML," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="窄門" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.2" />
+
+
+
+
+
+
+<meta name="description" content="ML-Yacc是Yacc的ML语言实现。
+
+yacc（Yet Another Compiler Compiler），是Unix/Linux上一个用来生成编译器的编译器（编译器代码生成器）。yacc生成的编译器主要是用C语言写成的语法解析器（Parser），需要与词法解析器Lex一起使用，再把两部份产生出来的C程序一并编译。yacc本来只在Unix系统上才有，但现时已普遍移植往Windows及其他平">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ML-Yacc入门">
+<meta property="og:url" content="http://tsgzj.me/2013/05/10/ml-yacc/index.html">
+<meta property="og:site_name" content="窄門">
+<meta property="og:description" content="ML-Yacc是Yacc的ML语言实现。
+
+yacc（Yet Another Compiler Compiler），是Unix/Linux上一个用来生成编译器的编译器（编译器代码生成器）。yacc生成的编译器主要是用C语言写成的语法解析器（Parser），需要与词法解析器Lex一起使用，再把两部份产生出来的C程序一并编译。yacc本来只在Unix系统上才有，但现时已普遍移植往Windows及其他平">
+<meta property="og:updated_time" content="2013-11-20T07:02:45.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ML-Yacc入门">
+<meta name="twitter:description" content="ML-Yacc是Yacc的ML语言实现。
+
+yacc（Yet Another Compiler Compiler），是Unix/Linux上一个用来生成编译器的编译器（编译器代码生成器）。yacc生成的编译器主要是用C语言写成的语法解析器（Parser），需要与词法解析器Lex一起使用，再把两部份产生出来的C程序一并编译。yacc本来只在Unix系统上才有，但现时已普遍移植往Windows及其他平">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: '',
+    sidebar: 'hide',
+    motion: true
+  };
+</script>
+
+  <title> ML-Yacc入门 | 窄門 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en_US">
+
+  <!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+  
+
+
+
+
+
+
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">窄門</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">不能吃太多变胖哦，会被杀掉的！</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首頁
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            歸檔
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            標籤
+          </a>
+        </li>
+      
+
+      
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content">
+          
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                ML-Yacc入门
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            發表於
+            <time itemprop="dateCreated" datetime="2013-05-10T19:53:54-07:00" content="May 10 2013">
+              May 10 2013
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp; 分類於
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Compiler/" itemprop="url" rel="index">
+                    <span itemprop="name">Compiler</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2013/05/10/ml-yacc/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2013/05/10/ml-yacc/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <span itemprop="articleBody"><p>ML-Yacc&#x662F;<a href="http://zh.wikipedia.org/wiki/Yacc" target="_blank" rel="external">Yacc</a>&#x7684;ML&#x8BED;&#x8A00;&#x5B9E;&#x73B0;&#x3002;</p>
+<blockquote>
+<p>yacc&#xFF08;Yet Another Compiler Compiler&#xFF09;&#xFF0C;&#x662F;Unix/Linux&#x4E0A;&#x4E00;&#x4E2A;&#x7528;&#x6765;&#x751F;&#x6210;&#x7F16;&#x8BD1;&#x5668;&#x7684;&#x7F16;&#x8BD1;&#x5668;&#xFF08;&#x7F16;&#x8BD1;&#x5668;&#x4EE3;&#x7801;&#x751F;&#x6210;&#x5668;&#xFF09;&#x3002;yacc&#x751F;&#x6210;&#x7684;&#x7F16;&#x8BD1;&#x5668;&#x4E3B;&#x8981;&#x662F;&#x7528;C&#x8BED;&#x8A00;&#x5199;&#x6210;&#x7684;&#x8BED;&#x6CD5;&#x89E3;&#x6790;&#x5668;&#xFF08;Parser&#xFF09;&#xFF0C;&#x9700;&#x8981;&#x4E0E;&#x8BCD;&#x6CD5;&#x89E3;&#x6790;&#x5668;Lex&#x4E00;&#x8D77;&#x4F7F;&#x7528;&#xFF0C;&#x518D;&#x628A;&#x4E24;&#x90E8;&#x4EFD;&#x4EA7;&#x751F;&#x51FA;&#x6765;&#x7684;C&#x7A0B;&#x5E8F;&#x4E00;&#x5E76;&#x7F16;&#x8BD1;&#x3002;yacc&#x672C;&#x6765;&#x53EA;&#x5728;Unix&#x7CFB;&#x7EDF;&#x4E0A;&#x624D;&#x6709;&#xFF0C;&#x4F46;&#x73B0;&#x65F6;&#x5DF2;&#x666E;&#x904D;&#x79FB;&#x690D;&#x5F80;Windows&#x53CA;&#x5176;&#x4ED6;&#x5E73;&#x53F0;&#x3002;</p>
+</blockquote>
+<a id="more"></a>
+<blockquote>
+<p>yacc&#x7684;&#x8F93;&#x5165;&#x662F;&#x5DF4;&#x79D1;&#x65AF;&#x8303;&#x5F0F;&#xFF08;BNF&#xFF09;&#x8868;&#x8FBE;&#x7684;&#x8BED;&#x6CD5;&#x89C4;&#x5219;&#x4EE5;&#x53CA;&#x8BED;&#x6CD5;&#x89C4;&#x7EA6;&#x7684;&#x5904;&#x7406;&#x4EE3;&#x7801;&#xFF0C;Yacc&#x8F93;&#x51FA;&#x7684;&#x662F;&#x57FA;&#x4E8E;&#x8868;&#x9A71;&#x52A8;&#x7684;&#x7F16;&#x8BD1;&#x5668;&#xFF0C;&#x5305;&#x542B;&#x8F93;&#x5165;&#x7684;&#x8BED;&#x6CD5;&#x89C4;&#x7EA6;&#x7684;&#x5904;&#x7406;&#x4EE3;&#x7801;&#x90E8;&#x5206;&#x3002;</p>
+<p>yacc&#x662F;&#x5F00;&#x53D1;&#x7F16;&#x8BD1;&#x5668;&#x7684;&#x4E00;&#x4E2A;&#x6709;&#x7528;&#x7684;&#x5DE5;&#x5177;&#xFF0C;&#x91C7;&#x7528;LALR(1)&#x8BED;&#x6CD5;&#x5206;&#x6790;&#x65B9;&#x6CD5;&#x3002;</p>
+<p>yacc&#x6700;&#x521D;&#x7531;AT&amp;T&#x7684;Steven C. Johnson&#x4E3A;Unix&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x5F00;&#x53D1;&#xFF0C;&#x540E;&#x6765;&#x4E00;&#x4E9B;&#x517C;&#x5BB9;&#x7684;&#x7A0B;&#x5E8F;&#x5982;Berkeley Yacc&#xFF0C;GNU bison&#xFF0C;MKS yacc&#x548C;Abraxas yacc&#x9646;&#x7EED;&#x51FA;&#x73B0;&#x3002;&#x5B83;&#x4EEC;&#x90FD;&#x5728;&#x539F;&#x5148;&#x57FA;&#x7840;&#x4E0A;&#x505A;&#x4E86;&#x5C11;&#x8BB8;&#x6539;&#x8FDB;&#x6216;&#x8005;&#x589E;&#x52A0;&#xFF0C;&#x4F46;&#x662F;&#x57FA;&#x672C;&#x6982;&#x5FF5;&#x662F;&#x76F8;&#x540C;&#x7684;&#x3002;</p>
+<p>&#x7531;&#x4E8E;&#x6240;&#x4EA7;&#x751F;&#x7684;&#x89E3;&#x6790;&#x5668;&#x9700;&#x8981;&#x8BCD;&#x6CD5;&#x5206;&#x6790;&#x5668;&#x914D;&#x5408;&#xFF0C;&#x56E0;&#x6B64;Yacc&#x7ECF;&#x5E38;&#x548C;&#x8BCD;&#x6CD5;&#x5206;&#x6790;&#x5668;&#x7684;&#x4EA7;&#x751F;&#x5668;&#x2014;&#x2014;&#x4E00;&#x822C;&#x5C31;&#x662F;Lex&#x2014;&#x2014;&#x8054;&#x5408;&#x4F7F;&#x7528;&#x3002;IEEE POSIX P1003.2 &#x6807;&#x51C6;&#x5B9A;&#x4E49;&#x4E86;Lex&#x548C;Yacc&#x7684;&#x529F;&#x80FD;&#x548C;&#x9700;&#x6C42;&#x3002;</p>
+</blockquote>
+<p>ML-Yacc&#x8981;&#x6C42;&#x4F7F;&#x7528;&#x5982;&#x4E0B;&#x7684;&#x57FA;&#x672C;&#x683C;&#x5F0F;&#xFF1A;</p>
+<pre><code>{<span class="keyword">user</span> <span class="title">declarations</span>}
+%%
+{ML-Yacc declarations}
+%%
+{rules}
+</code></pre><p>&#x7C7B;&#x4F3C;&#x4E8E;ML-Lex&#xFF0C;{user declarations}&#x7528;&#x6237;&#x58F0;&#x660E;&#x90E8;&#x5206;&#x7528;&#x4E8E;&#x5B9A;&#x4E49;&#x89C4;&#x5219;&#x4E2D;&#x7528;&#x5230;&#x7684;&#x81EA;&#x5B9A;&#x4E49;&#x503C;&#x3002;&#x5EFA;&#x8BAE;&#x5C3D;&#x91CF;&#x7F29;&#x77ED;&#x8FD9;&#x90E8;&#x5206;&#x7684;&#x4EE3;&#x7801;&#x3002;</p>
+<p>{ML-Yacc declarations}&#x90E8;&#x5206;&#x7528;&#x4E8E;&#x8FDB;&#x884C;&#x5FC5;&#x987B;&#x548C;&#x53EF;&#x9009;&#x7684;&#x58F0;&#x660E;&#x3002;&#x5982;&#xFF0C;&#x5FC5;&#x987B;&#x58F0;&#x660E;&#x7EC8;&#x7ED3;&#x7B26;&#x3001;&#x975E;&#x7EC8;&#x7ED3;&#x7B26;&#x4EE5;&#x53CA;&#x4E0E;&#x4ED6;&#x4EEC;&#x76F8;&#x5173;&#x8054;&#x7684;&#x503C;&#x7C7B;&#x578B;&#xFF0C;&#x5FC5;&#x987B;&#x5B9A;&#x4E49;&#x8BED;&#x6CD5;&#x5206;&#x6790;&#x5668;&#x7684;&#x540D;&#x5B57;&#xFF0C;position&#x503C;&#x7684;&#x7C7B;&#x578B;&#xFF0C;&#x53EF;&#x4EE5;&#x8DDF;&#x5728;&#x5F00;&#x59CB;&#x7B26;&#x53F7;&#x540E;&#x9762;&#x7684;&#x7EC8;&#x7ED3;&#x7B26;&#x548C;&#x975E;&#x7EC8;&#x7ED3;&#x7B26;&#x6709;&#x54EA;&#x4E9B;&#x7B49;&#x3002;&#x53EF;&#x4EE5;&#x9009;&#x62E9;&#x7684;&#x58F0;&#x660E;&#x6709;&#xFF1A;&#x7EC8;&#x7ED3;&#x7B26;&#x7684;&#x4F18;&#x5148;&#x7EA7;&#xFF0C;&#x7981;&#x6B62;&#x9ED8;&#x8BA4;&#x7684;&#x89C4;&#x7EA6;&#xFF0C;&#x89C4;&#x5B9A;&#x751F;&#x6210;&#x7A0B;&#x5E8F;&#x662F;&#x5426;&#x5728;.desc&#x6587;&#x4EF6;&#x4E2D;&#x751F;&#x5B58;&#x5197;&#x957F;&#x7684;&#x63CF;&#x8FF0;&#x4FE1;&#x606F;&#x7B49;&#x7B49;&#x3002;</p>
+<p>{rules}&#x90E8;&#x5206;&#x5305;&#x62EC;&#x4E0A;&#x4E0B;&#x6587;&#x65E0;&#x5173;&#x6587;&#x6CD5;&#x548C;&#x76F8;&#x5E94;&#x7684;&#x8BED;&#x4E49;&#x884C;&#x4E3A;&#x3002;</p>
+<p>##&#x5FC5;&#x8981;&#x58F0;&#x660E;</p>
+<p><strong><em>%name</em></strong><br>&#x5FC5;&#x987B;&#x7ED9;&#x8BED;&#x6CD5;&#x5206;&#x6790;&#x5668;&#x6307;&#x5B9A;&#x4E00;&#x4E2A;&#x540D;&#x5B57;</p>
+<p><strong><em>%term  %nonterm</em></strong><br>&#x5FC5;&#x987B;&#x5B9A;&#x4E49;&#x7EC8;&#x7ED3;&#x548C;&#x975E;&#x7EC8;&#x7ED3;&#x7B26;&#x96C6;&#x3002;&#x8FD9;&#x4E9B;&#x58F0;&#x660E;&#x7C7B;&#x4F3C;&#x4E8E;ML&#x6570;&#x636E;&#x7C7B;&#x578B;&#x5B9A;&#x4E49;&#xFF0C;&#x8BED;&#x6CD5;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code>%term <span class="type">NAME1</span> [<span class="keyword">of</span> <span class="type">ML</span>-<span class="typedef"><span class="keyword">type</span>]</span>
+
+      |   <span class="type">NAME2</span> [<span class="keyword">of</span> <span class="type">ML</span>-<span class="typedef"><span class="keyword">type</span>]</span>
+</code></pre><p>&#x4E0D;&#x8981;&#x4F7F;&#x7528;ML&#x7684;&#x5173;&#x952E;&#x5B57;&#x4F5C;&#x4E3A;&#x7B26;&#x53F7;&#x540D;&#xFF01; &#x5426;&#x5219;ML-Yacc&#x5C06;&#x65E0;&#x6CD5;&#x7F16;&#x8BD1;&#x3002;&#x786E;&#x4FDD;&#xFF05;term&#x58F0;&#x660E;&#x4E2D;&#x6307;&#x5B9A;&#x7C7B;&#x578B;&#x662F;&#x5B8C;&#x5168;&#x5408;&#x6CD5;&#x7684;&#x7C7B;&#x578B;&#xFF0C;&#x6216;&#x8005;&#x662F;&#x5728;&#x52A0;&#x8F7D;&#x73AF;&#x5883;&#x65F6;&#x7B7E;&#x540D;&#x4E2D;&#x4F7F;&#x7528;&#x7684;&#x7C7B;&#x578B;&#x3002;&#x4E0D;&#x8981;&#x4F7F;&#x7528;&#x4EFB;&#x4F55;&#x7528;&#x6237;&#x58F0;&#x660E;&#x90E8;&#x5206;&#x7684;&#x7C7B;&#x578B;&#x3002;</p>
+<p><strong><em>%pos</em></strong><br>&#x4F60;&#x5FC5;&#x987B;&#x4F7F;&#x7528;%pos&#x58F0;&#x660E;&#x4F4D;&#x7F6E;&#x503C;&#x7684;&#x7C7B;&#x578B;&#xFF0C;&#x8BED;&#x6CD5;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code>%pos &lt;<span class="type">ML</span>-<span class="typedef"><span class="keyword">type</span>&gt;</span>
+</code></pre><p>&#x8FD9;&#x91CC;&#x7684;&#x7C7B;&#x578B;<strong>&#x52A1;&#x5FC5;</strong>&#x548C;&#x8BCD;&#x6CD5;&#x5206;&#x6790;&#x4E2D;&#x7684;&#x76F8;&#x540C;&#xFF0C;&#x5E76;&#x4E14;&#x4E0D;&#x80FD;&#x662F;&#x591A;&#x6001;&#x7684;&#x3002;</p>
+<p>##&#x53EF;&#x9009;&#x58F0;&#x660E;</p>
+<p><strong>%arg                    </strong></p>
+<p><strong>%eop                    </strong></p>
+<p><strong>%noshift                </strong></p>
+<p><strong>%header                 </strong></p>
+<p><strong>%left&#xFF0C;%right&#xFF0C;%nonassoc</strong></p>
+<p><strong>%start                  </strong></p>
+<p><strong>%verbose                </strong></p>
+<p>##&#x7528;&#x6765;&#x52A0;&#x5F3A;&#x9519;&#x8BEF;&#x6062;&#x590D;&#x7684;&#x58F0;&#x660E;</p>
+<p><strong>%keyword </strong></p>
+<p><strong>%prefer  </strong></p>
+<p><strong>%subst   </strong></p>
+<p><strong>%change  </strong></p>
+<p><strong>%value   </strong></p>
+</span>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/ML/" rel="tag">#ML</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2013/04/20/talk_about_headset/" rel="next" title="谈谈耳机">
+                <i class="fa fa-chevron-left"></i> 谈谈耳机
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2013/06/13/calendar-apps-for-mac/" rel="prev" title="Mac下日历App推荐">
+                Mac下日历App推荐 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+        </div>
+
+        
+
+
+        
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+      </div>
+    
+  </div>
+
+
+      </div>
+
+      
+        
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目錄
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            本站概覽
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" src="/images/default_avatar.jpg" alt="Tsgzj" itemprop="image"/>
+          <p class="site-author-name" itemprop="name">Tsgzj</p>
+        </div>
+        <p class="site-description motion-element" itemprop="description">不能吃太多变胖哦，会被杀掉的！</p>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">15</span>
+              <span class="site-state-item-name">文章</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            
+              <span class="site-state-item-count">4</span>
+              <span class="site-state-item-name">分類</span>
+              
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">6</span>
+              <span class="site-state-item-name">標籤</span>
+              </a>
+          </div>
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/Tsgzj" target="_blank">
+                  
+                    <i class="fa fa-Tsgzj"></i> GitHub
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/tsgzj" target="_blank">
+                  
+                    <i class="fa fa-tsgzj"></i> Twitter
+                  
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator">
+            <i class="fa fa-angle-double-up"></i>
+          </div>
+          <div class="post-toc">
+            
+              
+            
+            
+              <p class="post-toc-empty">此文章未包含目錄</p>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator">
+            <i class="fa fa-angle-double-down"></i>
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+      
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2015</span>
+  <span class="with-love">
+    <i class="icon-next-heart fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Tsgzj</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 強力驅動
+</div>
+
+<div class="theme-info">
+  主題 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+
+  
+    
+    
+
+  
+
+    <script type="text/javascript">
+      var disqus_shortname = 'tsgzj';
+      var disqus_identifier = '2013/05/10/ml-yacc/';
+      var disqus_title = 'ML-Yacc入门';
+      var disqus_url = 'http://tsgzj.me/2013/05/10/ml-yacc/';
+
+      function run_disqus_script(disqus_script){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      }
+
+      run_disqus_script('count.js');
+      
+        run_disqus_script('embed.js');
+      
+    </script>
+  
+
+
+  
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.5.2"></script>
+
+
+  <script type="text/javascript" src="/js/helpers.js?v=0.4.5.2"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+<script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+<script type="text/javascript" src="/js/motion.js?v=0.4.5.2" id="motion.global"></script>
+
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.5.2" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 1 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    motionMiddleWares.sidebar = function () {
+      var $tocContent = $('.post-toc-content');
+      if (CONFIG.sidebar === 'post') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          displaySidebar();
+        }
+      }
+    };
+  });
+</script>
+
+
+
+  <script type="text/javascript" src="/js/bootstrap.js"></script>
+
+  
+  
+
+  
+  
+
+</body>
+</html>
