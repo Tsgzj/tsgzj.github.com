@@ -4,7 +4,7 @@
   <subtitle><![CDATA[不能吃太多变胖哦，会被杀掉的！]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://tsgzj.me/"/>
-  <updated>2015-11-04T00:49:24.000Z</updated>
+  <updated>2015-11-08T22:22:53.000Z</updated>
   <id>http://tsgzj.me/</id>
   
   <author>
@@ -19,16 +19,19 @@
     <link href="http://tsgzj.me/2015/02/26/lambda_caculus_and_church_numerals/"/>
     <id>http://tsgzj.me/2015/02/26/lambda_caculus_and_church_numerals/</id>
     <published>2015-02-27T02:10:21.000Z</published>
-    <updated>2015-11-04T00:49:24.000Z</updated>
+    <updated>2015-11-08T22:22:53.000Z</updated>
     <content type="html"><![CDATA[<p>&#x5047;&#x8BBE;&#x6211;&#x4EEC;&#x6709;&#x4E00;&#x95E8;&#x53EA;&#x80FD;&#x4F7F;&#x7528;Lambda&#x6F14;&#x7B97;&#x7684;&#x8BED;&#x8A00;&#xFF0C;&#x5B83;&#x7684;&#x8BA1;&#x7B97;&#x80FD;&#x529B;&#x6709;&#x591A;&#x5F3A;&#xFF1F;</p>
-<a id="more"></a>
+<p>&#x8981;&#x8BA8;&#x8BBA;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#xFF0C;&#x8BA9;&#x6211;&#x4EEC;&#x5148;&#x4ECE;&#x5B9A;&#x4E49;&#x81EA;&#x7136;&#x6570;&#x5F00;&#x59CB;&#x3002;<br><a id="more"></a></p>
 <!-- toc -->
 <ul>
-<li><a href="#&#x90B1;&#x5947;&#x8BA1;&#x6570;church-numerals">&#x90B1;&#x5947;&#x8BA1;&#x6570;(church numerals)</a></li>
+<li><a href="#&#x90B1;&#x5947;&#x8BA1;&#x6570;church-numerals">&#x90B1;&#x5947;&#x8BA1;&#x6570;(church numerals)</a><ul>
 <li><a href="#&#x56DB;&#x5219;&#x8FD0;&#x7B97;">&#x56DB;&#x5219;&#x8FD0;&#x7B97;</a></li>
 </ul>
+</li>
+</ul>
 <!-- tocstop -->
-<h3 id="&#x90B1;&#x5947;&#x8BA1;&#x6570;church-numerals">&#x90B1;&#x5947;&#x8BA1;&#x6570;(church numerals)</h3><p>&#x6211;&#x4EEC;&#x6765;&#x770B;&#x770B;&#x90B1;&#x5947;&#x662F;&#x600E;&#x4E48;&#x5B9A;&#x4E49;&#x81EA;&#x7136;&#x6570;&#x7684;</p>
+<h1 id="&#x90B1;&#x5947;&#x8BA1;&#x6570;church-numerals">&#x90B1;&#x5947;&#x8BA1;&#x6570;(church numerals)</h1><p><a href="https://en.wikipedia.org/wiki/Alonzo_Church" target="_blank" rel="external">&#x90B1;&#x5947;</a>&#x5B9A;&#x4E49;&#x8FC7;&#x4E00;&#x79CD;&#x4EC5;&#x4F7F;&#x7528;lambda&#x6F14;&#x7B97;&#x7684;<br>&#x6570;&#x636E;&#x7F16;&#x7801;&#xFF0C;&#x6210;&#x4E3A;&#x90B1;&#x5947;&#x7F16;&#x7801;&#xFF08;church encoding&#xFF09;&#x3002;</p>
+<p>&#x6211;&#x4EEC;&#x5148;&#x6765;&#x770B;&#x770B;&#x90B1;&#x5947;&#x662F;&#x600E;&#x4E48;&#x5B9A;&#x4E49;&#x81EA;&#x7136;&#x6570;&#x7684;</p>
 <pre><code><span class="list">(<span class="keyword"><span class="built_in">define</span></span> <span class="number">0</span> <span class="list">(<span class="keyword"><span class="built_in">lambda</span></span> <span class="list">(<span class="keyword">f</span> x)</span> x)</span>)</span>
 <span class="list">(<span class="keyword"><span class="built_in">define</span></span> <span class="number">1</span> <span class="list">(<span class="keyword"><span class="built_in">lambda</span></span> <span class="list">(<span class="keyword">f</span> x)</span> <span class="list">(<span class="keyword">f</span> x)</span>)</span>)</span>
 <span class="list">(<span class="keyword"><span class="built_in">define</span></span> <span class="number">2</span> <span class="list">(<span class="keyword"><span class="built_in">lambda</span></span> <span class="list">(<span class="keyword">f</span> x)</span> <span class="list">(<span class="keyword">f</span> <span class="list">(<span class="keyword">f</span> x)</span>)</span>)</span>)</span>
@@ -39,7 +42,7 @@
 </code></pre><p>&#x6839;&#x636E;&#x81EA;&#x7136;&#x6570;&#x7684;&#x5B9A;&#x4E49;&#xFF0C;&#x4E00;&#x4E2A;&#x6570;&#x7684;&#x540E;&#x7EE7;&#x5373;&#x662F;&#x5C06;f&#x518D;&#x591A;&#x5E94;&#x7528;&#x4E00;&#x6B21;&#xFF0C;&#x90A3;&#x4E48;&#x6211;&#x4EEC;&#x5C31;&#x53EF;&#x4EE5;&#x5F97;&#x5230;&#x540E;&#x7EE7;&#x7684;&#x5B9A;&#x4E49;</p>
 <pre><code><span class="list">(<span class="keyword"><span class="built_in">define</span></span> suc <span class="list">(<span class="keyword"><span class="built_in">lambda</span></span> n)</span> <span class="list">(<span class="keyword"><span class="built_in">lambda</span></span> <span class="list">(<span class="keyword">f</span> x)</span> <span class="list">(<span class="keyword">f</span> <span class="list">(<span class="keyword">n</span> f x)</span>)</span>)</span>)</span>
 </code></pre><p>&#x8FD9;&#x6837;&#x6211;&#x4EEC;&#x5C31;&#x80FD;&#x5F97;&#x5230;&#x6574;&#x4E2A;&#x81EA;&#x7136;&#x6570;&#x57DF;&#x3002;</p>
-<h3 id="&#x56DB;&#x5219;&#x8FD0;&#x7B97;">&#x56DB;&#x5219;&#x8FD0;&#x7B97;</h3><p>&#x8BA9;&#x6211;&#x4EEC;&#x4ECE;&#x52A0;&#x6CD5;&#x5F00;&#x59CB;&#x3002;&#x52A0;&#x6CD5;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x540E;&#x7EE7;&#x5B9E;&#x73B0;&#xFF0C;&#x5373;(m+n)&#x662F;n&#x7684;m&#x4E2A;&#x540E;&#x7EE7;&#xFF0C;&#x5373;&#x5BF9;n&#x6C42;m&#x6B21;&#x540E;&#x7EE7;&#x3002;</p>
+<h2 id="&#x56DB;&#x5219;&#x8FD0;&#x7B97;">&#x56DB;&#x5219;&#x8FD0;&#x7B97;</h2><p>&#x8BA9;&#x6211;&#x4EEC;&#x4ECE;&#x52A0;&#x6CD5;&#x5F00;&#x59CB;&#x3002;&#x52A0;&#x6CD5;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x540E;&#x7EE7;&#x5B9E;&#x73B0;&#xFF0C;&#x5373;(m+n)&#x662F;n&#x7684;m&#x4E2A;&#x540E;&#x7EE7;&#xFF0C;&#x5373;&#x5BF9;n&#x6C42;m&#x6B21;&#x540E;&#x7EE7;&#x3002;</p>
 <pre><code><span class="list">(<span class="keyword"><span class="built_in">define</span></span> + <span class="list">(<span class="keyword"><span class="built_in">lambda</span></span> <span class="list">(<span class="keyword">m</span> n)</span> <span class="list">(<span class="keyword">m</span> suc n)</span>)</span>)</span>
 </code></pre><p>&#x5728;&#x8FD9;&#x91CC;&#xFF0C;&#x6211;&#x4EEC;&#x7528;<code>(m suc n)</code>&#x8868;&#x793A;&#x5C06;&#x6C42;n&#x7684;m&#x4E2A;&#x540E;&#x7EE7;&#xFF0C;&#x8FD9;&#x770B;&#x8D77;&#x6765;&#x6709;&#x4E9B;&#x96BE;&#x4EE5;&#x7406;&#x89E3;&#x3002;</p>
 <p>&#x8FD8;&#x8BB0;&#x5F97;&#x81EA;&#x7136;&#x6570;&#x7684;&#x5B9A;&#x4E49;&#x5417;&#xFF1F;n&#x53EF;&#x4EE5;&#x8868;&#x793A;&#x4E3A;<code>(lambda (f x) (f (f (... (f x)))))</code>&#x3002;&#x90A3;&#x4E48;&#x7C7B;&#x4F3C;<br>&#x7684;&#xFF0C;<code>(m suc n)</code>&#x7684;&#x8FD0;&#x7B97;&#x8FC7;&#x7A0B;&#x53EF;&#x4EE5;&#x8868;&#x793A;&#x4E3A;</p>
@@ -63,10 +66,12 @@
 <pre><code><span class="list">(<span class="keyword"><span class="built_in">define</span></span> ^ <span class="list">(<span class="keyword"><span class="built_in">lambda</span></span> <span class="list">(<span class="keyword">m</span> n)</span> <span class="list">(<span class="keyword">n</span> <span class="list">(<span class="keyword"><span class="built_in">*</span></span> m)</span> <span class="number">1</span>)</span>)</span>)</span>
 </code></pre><p>&#x7C7B;&#x4F3C;&#x7684;&#xFF0C;&#x5229;&#x7528;&#x6307;&#x6570;&#x51FD;&#x6570;&#x7684;&#x5B9A;&#x4E49;&#xFF1A;m^n&#x8868;&#x793A;n&#x4E2A;m&#x76F8;&#x4E58;</p>
 <pre><code><span class="list">(<span class="keyword"><span class="built_in">define</span></span> ^ <span class="list">(<span class="keyword"><span class="built_in">lambda</span></span> <span class="list">(<span class="keyword">m</span> n)</span> <span class="list">(<span class="keyword">n</span> m)</span>)</span>)</span>
-</code></pre><p>&#x770B;&#x8D77;&#x6765;&#x6709;&#x4E9B;&#x96BE;&#x4EE5;&#x7406;&#x89E3;&#xFF0C;&#x662F;&#x4E0D;&#x662F;&#xFF1F;</p>
+</code></pre><p>to be continued</p>
+<p>&#x3057;&#x304B;&#x3057;&#x5F7C;&#x5973;&#x306E;&#x8A18;&#x61B6;&#x306F;&#x7D9A;&#x304B;&#x306A;&#x3044;</p>
 ]]></content>
     <summary type="html">
-    <![CDATA[<p>假设我们有一门只能使用Lambda演算的语言，它的计算能力有多强？</p>]]>
+    <![CDATA[<p>假设我们有一门只能使用Lambda演算的语言，它的计算能力有多强？</p>
+<p>要讨论这个问题，让我们先从定义自然数开始。<br>]]>
     
     </summary>
     
