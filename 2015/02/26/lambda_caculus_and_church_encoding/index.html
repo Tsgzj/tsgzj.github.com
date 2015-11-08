@@ -63,7 +63,7 @@
 <meta property="og:site_name" content="窄門">
 <meta property="og:description" content="假设我们有一门只能使用Lambda演算的语言，它的计算能力有多强？
 要讨论这个问题，让我们先从定义自然数开始。">
-<meta property="og:updated_time" content="2015-11-08T22:26:13.000Z">
+<meta property="og:updated_time" content="2015-11-08T22:29:35.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="λ演算与邱奇编码">
 <meta name="twitter:description" content="假设我们有一门只能使用Lambda演算的语言，它的计算能力有多强？
@@ -244,13 +244,14 @@
 <!-- toc -->
 <ul>
 <li><a href="#&#x90B1;&#x5947;&#x7F16;&#x7801;church-encoding">&#x90B1;&#x5947;&#x7F16;&#x7801;(church encoding)</a><ul>
+<li><a href="#&#x90B1;&#x5947;&#x6570;">&#x90B1;&#x5947;&#x6570;</a></li>
 <li><a href="#&#x56DB;&#x5219;&#x8FD0;&#x7B97;">&#x56DB;&#x5219;&#x8FD0;&#x7B97;</a></li>
 </ul>
 </li>
 </ul>
 <!-- tocstop -->
-<h1 id="&#x90B1;&#x5947;&#x7F16;&#x7801;church-encoding">&#x90B1;&#x5947;&#x7F16;&#x7801;(church encoding)</h1><p><a href="https://en.wikipedia.org/wiki/Alonzo_Church" target="_blank" rel="external">&#x90B1;&#x5947;</a>&#x5B9A;&#x4E49;&#x8FC7;&#x4E00;&#x79CD;&#x4EC5;&#x4F7F;&#x7528;lambda&#x6F14;&#x7B97;&#x7684;<br>&#x6570;&#x636E;&#x7F16;&#x7801;&#xFF0C;&#x79F0;&#x4E3A;&#x90B1;&#x5947;&#x7F16;&#x7801;&#xFF08;church encoding&#xFF09;&#x3002;</p>
-<p>&#x6211;&#x4EEC;&#x5148;&#x6765;&#x770B;&#x770B;&#x90B1;&#x5947;&#x662F;&#x600E;&#x4E48;&#x5B9A;&#x4E49;&#x81EA;&#x7136;&#x6570;, &#x5373;&#x90B1;&#x5947;&#x6570;&#xFF08;church numerals&#xFF09;&#x7684;&#xFF1A;</p>
+<h1 id="&#x90B1;&#x5947;&#x7F16;&#x7801;church-encoding">&#x90B1;&#x5947;&#x7F16;&#x7801;(church encoding)</h1><p><a href="https://en.wikipedia.org/wiki/Alonzo_Church" target="_blank" rel="external">&#x90B1;&#x5947;</a>&#x5B9A;&#x4E49;&#x8FC7;&#x4E00;&#x79CD;&#x4EC5;&#x4F7F;&#x7528;lambda&#x6F14;&#x7B97;&#x7684;&#x6570;&#x636E;&#x7F16;&#x7801;&#xFF0C;&#x79F0;&#x4E3A;&#x90B1;&#x5947;&#x7F16;&#x7801;&#xFF08;church encoding&#xFF09;&#x3002;</p>
+<h2 id="&#x90B1;&#x5947;&#x6570;">&#x90B1;&#x5947;&#x6570;</h2><p>&#x6211;&#x4EEC;&#x5148;&#x6765;&#x770B;&#x770B;&#x90B1;&#x5947;&#x662F;&#x600E;&#x4E48;&#x5B9A;&#x4E49;&#x81EA;&#x7136;&#x6570;, &#x5373;&#x90B1;&#x5947;&#x6570;&#xFF08;church numerals&#xFF09;&#x7684;&#xFF1A;</p>
 <pre><code><span class="list">(<span class="keyword"><span class="built_in">define</span></span> <span class="number">0</span> <span class="list">(<span class="keyword"><span class="built_in">lambda</span></span> <span class="list">(<span class="keyword">f</span> x)</span> x)</span>)</span>
 <span class="list">(<span class="keyword"><span class="built_in">define</span></span> <span class="number">1</span> <span class="list">(<span class="keyword"><span class="built_in">lambda</span></span> <span class="list">(<span class="keyword">f</span> x)</span> <span class="list">(<span class="keyword">f</span> x)</span>)</span>)</span>
 <span class="list">(<span class="keyword"><span class="built_in">define</span></span> <span class="number">2</span> <span class="list">(<span class="keyword"><span class="built_in">lambda</span></span> <span class="list">(<span class="keyword">f</span> x)</span> <span class="list">(<span class="keyword">f</span> <span class="list">(<span class="keyword">f</span> x)</span>)</span>)</span>)</span>
@@ -297,8 +298,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/02/26/lambda_caculus_and_church_numerals/" rel="next" title="λ演算与邱奇编码">
-                <i class="fa fa-chevron-left"></i> λ演算与邱奇编码
+              <a href="/2014/01/10/ynab/" rel="next" title="YNAB(You Need A Budget)">
+                <i class="fa fa-chevron-left"></i> YNAB(You Need A Budget)
               </a>
             
           </div>
@@ -375,7 +376,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">17</span>
+              <span class="site-state-item-count">16</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -446,7 +447,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#邱奇编码church-encoding"><span class="nav-number">1.</span> <span class="nav-text">邱奇编码(church encoding)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#四则运算"><span class="nav-number">1.1.</span> <span class="nav-text">四则运算</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#邱奇编码church-encoding"><span class="nav-number">1.</span> <span class="nav-text">邱奇编码(church encoding)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#邱奇数"><span class="nav-number">1.1.</span> <span class="nav-text">邱奇数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四则运算"><span class="nav-number">1.2.</span> <span class="nav-text">四则运算</span></a></li></ol></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">
