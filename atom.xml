@@ -4,7 +4,7 @@
   <subtitle><![CDATA[不能吃太多变胖哦，会被杀掉的！]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://tsgzj.me/"/>
-  <updated>2015-11-08T22:32:41.000Z</updated>
+  <updated>2015-11-12T19:44:51.000Z</updated>
   <id>http://tsgzj.me/</id>
   
   <author>
@@ -19,7 +19,7 @@
     <link href="http://tsgzj.me/2015/02/26/lambda_caculus_and_church_encoding/"/>
     <id>http://tsgzj.me/2015/02/26/lambda_caculus_and_church_encoding/</id>
     <published>2015-02-27T02:10:21.000Z</published>
-    <updated>2015-11-08T22:32:41.000Z</updated>
+    <updated>2015-11-12T19:44:51.000Z</updated>
     <content type="html"><![CDATA[<p>&#x5047;&#x8BBE;&#x6211;&#x4EEC;&#x6709;&#x4E00;&#x95E8;&#x53EA;&#x80FD;&#x4F7F;&#x7528;Lambda&#x6F14;&#x7B97;&#x7684;&#x8BED;&#x8A00;&#xFF0C;&#x5B83;&#x7684;&#x8BA1;&#x7B97;&#x80FD;&#x529B;&#x6709;&#x591A;&#x5F3A;&#xFF1F;</p>
 <p>&#x8981;&#x8BA8;&#x8BBA;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#xFF0C;&#x8BA9;&#x6211;&#x4EEC;&#x5148;&#x4ECE;&#x5B9A;&#x4E49;&#x81EA;&#x7136;&#x6570;&#x5F00;&#x59CB;&#x3002;<br><a id="more"></a></p>
 <!-- toc -->
@@ -27,6 +27,7 @@
 <li><a href="#&#x90B1;&#x5947;&#x7F16;&#x7801;church-encoding">&#x90B1;&#x5947;&#x7F16;&#x7801;(church encoding)</a><ul>
 <li><a href="#&#x90B1;&#x5947;&#x6570;">&#x90B1;&#x5947;&#x6570;</a></li>
 <li><a href="#&#x56DB;&#x5219;&#x8FD0;&#x7B97;">&#x56DB;&#x5219;&#x8FD0;&#x7B97;</a></li>
+<li><a href="#&#x5E03;&#x5C14;">&#x5E03;&#x5C14;</a></li>
 </ul>
 </li>
 </ul>
@@ -67,6 +68,23 @@
 <pre><code><span class="list">(<span class="keyword"><span class="built_in">define</span></span> ^ <span class="list">(<span class="keyword"><span class="built_in">lambda</span></span> <span class="list">(<span class="keyword">m</span> n)</span> <span class="list">(<span class="keyword">n</span> <span class="list">(<span class="keyword"><span class="built_in">*</span></span> m)</span> <span class="number">1</span>)</span>)</span>)</span>
 </code></pre><p>&#x7C7B;&#x4F3C;&#x7684;&#xFF0C;&#x5229;&#x7528;&#x6307;&#x6570;&#x51FD;&#x6570;&#x7684;&#x5B9A;&#x4E49;&#xFF1A;m^n&#x8868;&#x793A;n&#x4E2A;m&#x76F8;&#x4E58;</p>
 <pre><code><span class="list">(<span class="keyword"><span class="built_in">define</span></span> ^ <span class="list">(<span class="keyword"><span class="built_in">lambda</span></span> <span class="list">(<span class="keyword">m</span> n)</span> <span class="list">(<span class="keyword">n</span> m)</span>)</span>)</span>
+</code></pre><p>&#x51CF;&#x6CD5;&#x7684;&#x5B9A;&#x4E49;&#x6BD4;&#x8F83;&#x590D;&#x6742;&#xFF0C;&#x6211;&#x4EEC;&#x7A0D;&#x540E;&#x518D;&#x8C08;&#x3002;</p>
+<h2 id="&#x5E03;&#x5C14;">&#x5E03;&#x5C14;</h2><p>&#x73B0;&#x5728;&#x6211;&#x4EEC;&#x5DF2;&#x7ECF;&#x6709;&#x4E86;&#x4E00;&#x5957;&#x81EA;&#x7136;&#x6570;&#x7684;&#x4F53;&#x7CFB;&#xFF0C;&#x5E76;&#x4E14;&#x6709;&#x4E86;&#x5BF9;&#x81EA;&#x7136;&#x6570;&#x7684;&#x64CD;&#x4F5C;&#xFF08;&#x52A0;&#x6CD5;&#x3001;&#x4E58;&#x6CD5;&#x3001;&#x6307;&#x6570;&#x51FD;&#x6570;&#xFF09;&#x3002;</p>
+<p>&#x8BE5;&#x600E;&#x4E48;&#x5B9A;&#x4E49;&#x5E03;&#x5C14;&#x7C7B;&#x578B;&#x5462;&#xFF1F;</p>
+<p>&#x5148;&#x6765;&#x601D;&#x8003;&#x4E0B;&#xFF0C;&#x5E03;&#x5C14;&#x7C7B;&#x578B;&#x5728;&#x4EC0;&#x4E48;&#x6837;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#x4F1A;&#x7528;&#x5230;&#x5462;&#xFF1F;</p>
+<p>&#x6700;&#x5E38;&#x7528;&#x7684;&#x662F;&#x7528;&#x5BF9;&#x4E0E;&#x9519;&#x505A;&#x9009;&#x62E9;&#x5427;&#xFF0C;&#x90A3;&#x4E48;&#x6211;&#x4EEC;&#x5C31;&#x53EF;&#x4EE5;&#x628A;&#x5E03;&#x5C14;&#x7F16;&#x7801;&#x6210;&#x8FD4;&#x56DE;&#x4E24;&#x4E2A;&#x53D8;&#x91CF;&#x4E2D;&#x7684;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x3002;</p>
+<pre><code><span class="list">(<span class="keyword"><span class="built_in">define</span></span> <span class="literal">#t</span> <span class="list">(<span class="keyword"><span class="built_in">lambda</span></span> <span class="list">(<span class="keyword">a</span> b)</span> a)</span>)</span>
+<span class="list">(<span class="keyword"><span class="built_in">define</span></span> <span class="literal">#f</span> <span class="list">(<span class="keyword"><span class="built_in">lambda</span></span> <span class="list">(<span class="keyword">a</span> b)</span> b)</span>)</span>
+</code></pre><p>&#x5728;&#x8FD9;&#x91CC;&#xFF0C;&#x5BF9;&#x8FD4;&#x56DE;&#x4E24;&#x4E2A;&#x53D8;&#x91CF;&#x4E2D;&#x7684;&#x524D;&#x4E00;&#x4E2A;&#xFF0C;&#x9519;&#x8FD4;&#x56DE;&#x540E;&#x4E00;&#x4E2A;&#x3002;</p>
+<p>&#x987A;&#x5E8F;&#x5176;&#x5B9E;&#x5E76;&#x4E0D;&#x91CD;&#x8981;&#xFF0C;&#x6211;&#x4EEC;&#x53EA;&#x9700;&#x8981;&#x5728;&#x5B9E;&#x73B0;&#x63A7;&#x5236;&#x6D41;&#x7684;&#x65F6;&#x5019;&#x53CD;&#x6620;&#x51FA;&#x5E03;&#x5C14;&#x7684;&#x5B9A;&#x4E49;&#x5373;&#x53EF;&#x3002;</p>
+<p>&#x6709;&#x4E86;&#x5BF9;&#x548C;&#x9519;&#xFF0C;&#x8BA9;&#x6211;&#x4EEC;&#x6765;&#x5B9E;&#x73B0;<code>if</code>&#x5427;&#x3002;</p>
+<p><code>if</code>&#x63A5;&#x53D7;&#x4E09;&#x4E2A;&#x53D8;&#x91CF;&#xFF0C;&#x7531;&#x7B2C;&#x4E00;&#x4E2A;&#x53D8;&#x91CF;&#x51B3;&#x5B9A;&#x662F;&#x8FD4;&#x56DE;&#x7B2C;&#x4E8C;&#x4E2A;&#x8FD8;&#x662F;&#x7B2C;&#x4E09;&#x4E2A;&#x53D8;&#x91CF;&#x3002;&#x8FD8;&#x8BB0;&#x5F97;&#x6211;&#x4EEC;&#x600E;&#x4E48;&#x5B9A;<br>&#x4E49;&#x5E03;&#x5C14;&#x7684;&#x5417;&#xFF1F;&#x5B83;&#x63A5;&#x53D7;&#x4E24;&#x4E2A;&#x53D8;&#x91CF;&#x5E76;&#x8FD4;&#x56DE;&#x5176;&#x4E2D;&#x4E00;&#x4E2A;&#x3002;&#x90A3;&#x4E48;&#x6211;&#x4EEC;&#x76F4;&#x63A5;&#x5229;&#x7528;&#x5E03;&#x5C14;&#x7684;&#x5B9A;&#x4E49;&#x5C31;&#x53EF;&#x4EE5;&#x5B9E;&#x73B0;<br><code>if</code>:</p>
+<pre><code><span class="list">(<span class="keyword"><span class="built_in">define</span></span> if <span class="list">(<span class="keyword"><span class="built_in">lambda</span></span> <span class="list">(<span class="keyword">c</span> a b)</span> <span class="list">(<span class="keyword">c</span> a b)</span>)</span>)</span>
+</code></pre><p><code>c</code>&#x5728;&#x8FD9;&#x91CC;&#x662F;&#x4E00;&#x4E2A;&#x5E03;&#x5C14;&#xFF0C;&#x5B83;&#x63A5;&#x53D7;<code>a b</code>&#x4E24;&#x4E2A;&#x53C2;&#x6570;&#xFF0C;&#x5F53;<code>c</code>&#x4E3A;&#x771F;&#x65F6;&#xFF0C;&#x8FD4;&#x56DE;<code>a</code>&#xFF0C;&#x53CD;&#x4E4B;&#x4E3A;<code>b</code>&#x3002;</p>
+<p>&#x90A3;&#x4E48;<code>and</code>&#x3001;<code>or</code>&#x548C;<code>not</code>&#x5462;&#xFF1F;</p>
+<pre><code><span class="list">(<span class="keyword"><span class="built_in">define</span></span> and <span class="list">(<span class="keyword"><span class="built_in">lambda</span></span> a b)</span> <span class="list">(<span class="keyword">a</span> b <span class="literal">#f</span>)</span>)</span>
+<span class="list">(<span class="keyword"><span class="built_in">define</span></span> or <span class="list">(<span class="keyword"><span class="built_in">lambda</span></span> <span class="list">(<span class="keyword">a</span> b)</span> <span class="list">(<span class="keyword">a</span> a b)</span>)</span>)</span>
+<span class="list">(<span class="keyword"><span class="built_in">define</span></span> not <span class="list">(<span class="keyword"><span class="built_in">lambda</span></span> x)</span> <span class="list">(<span class="keyword">x</span> <span class="literal">#f</span> <span class="literal">#t</span>)</span>)</span>
 </code></pre><p>to be continued<br>&#x3057;&#x304B;&#x3057;&#x5F7C;&#x5973;&#x306E;&#x8A18;&#x61B6;&#x306F;&#x7D9A;&#x304B;&#x306A;&#x3044;</p>
 ]]></content>
     <summary type="html">
