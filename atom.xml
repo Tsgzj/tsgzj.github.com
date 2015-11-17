@@ -4,7 +4,7 @@
   <subtitle><![CDATA[不能吃太多变胖哦，会被杀掉的！]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://tsgzj.me/"/>
-  <updated>2015-11-17T07:53:47.000Z</updated>
+  <updated>2015-11-17T08:26:58.000Z</updated>
   <id>http://tsgzj.me/</id>
   
   <author>
@@ -19,7 +19,7 @@
     <link href="http://tsgzj.me/2015/11/16/Using-xmp-with-Emacs-ruby-mode/"/>
     <id>http://tsgzj.me/2015/11/16/Using-xmp-with-Emacs-ruby-mode/</id>
     <published>2015-11-17T07:35:09.000Z</published>
-    <updated>2015-11-17T07:53:47.000Z</updated>
+    <updated>2015-11-17T08:26:58.000Z</updated>
     <content type="html"><![CDATA[<p>&#x5728;&#x770B;John Cinnamond&#x7684; <a href="https://www.youtube.com/watch?v=FDs-sSxo2iY" target="_blank" rel="external">Extreme Object-Oriented Ruby</a>&#x7684;&#x65F6; &#x5019;&#xFF0C;&#x6CE8;&#x610F;&#x5230;John&#x5728;Emacs&#x91CC;&#x5B9E;&#x65F6;&#x8FD0;&#x884C;&#x4E86;Ruby&#x4EE3;&#x7801;&#x5E76;&#x4E14;&#x8F93;&#x51FA;&#x4E86;&#x7ED3;&#x679C;&#x3002;&#x67E5;&#x4E86;&#x4E00;&#x4E0B;&#xFF0C;&#x8FD9;&#x662F;&#x901A;&#x8FC7; xmpfilter&#x4EE5;&#x53CA;rcodetools&#x3001;robe&#x5B9E;&#x73B0;&#x7684;&#x3002;<br><a id="more"></a></p>
 <p>&#x8981;&#x5B9E;&#x73B0;&#x8FD9;&#x4E2A;&#xFF0C;&#x9996;&#x5148;&#x6211;&#x4EEC;&#x9700;&#x8981;xmpfilter</p>
 <pre><code>gem <span class="keyword">install</span> xmpfilter
@@ -29,8 +29,11 @@
   <span class="list">(<span class="keyword"><span class="built_in">lambda</span></span> <span class="list">()</span>
     <span class="list">(<span class="keyword"><span class="built_in">require</span></span> <span class="variable">&apos;robe</span>)</span>
     <span class="list">(<span class="keyword"><span class="built_in">require</span></span> <span class="variable">&apos;rcodetools</span>)</span>)</span>)</span>
-</code></pre><p>&#x5E76;&#x4E14;&#x7ED1;&#x5B9A;&#x5FEB;&#x6377;&#x952E;<br>    (add-hook &#x2018;ruby-mode-hook<br>              &#x2018;robe-mode<br>              (define-key ruby-mode-map (kbd &#x201C;C-c C-c&#x201D;) &#x2018;xmp))</p>
-<p>&#x8FD9;&#x6837;&#x5C31;&#x5B8C;&#x6210;&#x4E86;&#x3002;</p>
+</code></pre><p>&#x5E76;&#x4E14;&#x7ED1;&#x5B9A;&#x5FEB;&#x6377;&#x952E;</p>
+<pre><code><span class="list">(<span class="keyword">add-hook</span> <span class="quoted">&apos;ruby-mode-hook</span>
+          <span class="quoted">&apos;robe-mode</span>
+          <span class="list">(<span class="keyword">define-key</span> ruby-mode-map <span class="list">(<span class="keyword">kbd</span> <span class="string">&quot;C-c C-c&quot;</span>)</span> <span class="quoted">&apos;xmp</span>)</span>)</span>
+</code></pre><p>&#x8FD9;&#x6837;&#x5C31;&#x5B8C;&#x6210;&#x4E86;&#x3002;</p>
 <p>&#x5176;&#x5B9E;&#x5E76;&#x6CA1;&#x6709;&#x3002;&#x5728;&#x5B9E;&#x9645;&#x64CD;&#x4F5C;&#x4E2D;&#xFF0C;&#x56E0;&#x4E3A;&#x6211;&#x4F7F;&#x7528;rvm&#x6765;&#x7BA1;&#x7406;&#x591A;&#x4E2A;&#x4E0D;&#x540C;&#x914D;&#x7F6E;&#x7684;ruby&#xFF0C;&#x76F4;&#x63A5;<code>C-c
 C-c</code>&#x4F1A;&#x63D0;&#x793A;&#x627E;&#x4E0D;&#x5230;xmp&#x8FD9;&#x4E2A;&#x64CD;&#x4F5C;&#x3002;&#x56E0;&#x4E3A;&#x6211;&#x53EA;&#x5728;&#x4E00;&#x4E2A;ruby&#x73AF;&#x5883;&#x4E2D;&#x5B89;&#x88C5;&#x4E86;xmpfilter&#xFF0C;&#x800C;&#x8FD9;&#x4E2A;<br>ruby&#x73AF;&#x5883;&#x5E76;&#x4E0D;&#x662F;emacs&#x9ED8;&#x8BA4;&#x7684;&#x3002;</p>
 <p>&#x89E3;&#x51B3;&#x65B9;&#x6CD5;&#x4E5F;&#x5F88;&#x7B80;&#x5355;&#xFF0C;emacs&#x4E5F;&#x6709;rvm&#x63D2;&#x4EF6;&#xFF0C;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x8FD9;&#x4E2A;&#x5207;&#x6362;ruby&#x73AF;&#x5883;&#xFF0C;&#x6216;&#x8005;&#x66F4;&#x7701;&#x4E8B;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;<br>&#x76F4;&#x63A5;&#x5C06;&#x5B89;&#x88C5;&#x4E86;xmpfilter&#x7684;ruby&#x4F5C;&#x4E3A;&#x9ED8;&#x8BA4;&#x73AF;&#x5883;&#xFF0C;&#x6216;&#x8005;&#x7ED9;&#x6240;&#x6709;&#x7248;&#x672C;&#x90FD;&#x5B89;&#x88C5;xmpfilter&#x5373;&#x53EF;&#x3002;</p>
