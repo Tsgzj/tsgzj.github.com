@@ -45,5 +45,34 @@
       <description>The Endless Repating Twentieth Century Modernism is a sculpture created by Josiah McElhenry. It currently being presented at MFA, Boston.</description>
     </item>
     
+    <item>
+      <title>Emacs ruby模式实时求值</title>
+      <link>/posts/using-xmp-with-emacs-ruby-mode/</link>
+      <pubDate>Mon, 16 Nov 2015 23:35:09 +0000</pubDate>
+      
+      <guid>/posts/using-xmp-with-emacs-ruby-mode/</guid>
+      <description>&lt;p&gt;在看John Cinnamond的 &lt;a href=&#34;https://www.youtube.com/watch?v=FDs-sSxo2iY&#34;&gt;Extreme Object-Oriented Ruby&lt;/a&gt;的时候，注意到John在Emacs里实时运行了Ruby代码并且输出了结果。查了一下，这是通过 xmpfilter以及rcodetools、robe实现的。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>λ演算与邱奇编码</title>
+      <link>/posts/lambda_caculus_and_church_encoding/</link>
+      <pubDate>Thu, 26 Feb 2015 18:10:21 +0000</pubDate>
+      
+      <guid>/posts/lambda_caculus_and_church_encoding/</guid>
+      <description>&lt;p&gt;假设我们有一门只能使用Lambda演算的语言，它的计算能力有多强？&lt;/p&gt;
+&lt;p&gt;要讨论这个问题，让我们先从定义自然数开始。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Slate:Mac下的窗口管理器</title>
+      <link>/posts/introduce_slate/</link>
+      <pubDate>Sat, 15 Jun 2013 23:27:48 +0000</pubDate>
+      
+      <guid>/posts/introduce_slate/</guid>
+      <description>&lt;p&gt;一直想要一个Mac下的类平铺式窗口管理器，使用过divvy，但是使用鼠标的时候手在鼠标和键盘之间来回移动很麻烦，于是放弃了。。之前还在用Macbook Pro 17的时候试过一段时间的&lt;a href=&#34;https://github.com/jigish/slate&#34;&gt;slate&lt;/a&gt;，不过换了rMBP 13以后，总是觉得屏幕小，所以对平铺式的窗口管理器的需求也减弱了。而且利用bettertouchtool的window snapping功能也能满足我的需要，所以有一段时间没用了。&lt;/p&gt;
+&lt;p&gt;今天正好看到有人提起，打开试了一下，就萌生了写篇介绍的想法。&lt;/p&gt;</description>
+    </item>
+    
   </channel>
 </rss>

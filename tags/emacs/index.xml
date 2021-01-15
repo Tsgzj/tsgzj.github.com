@@ -18,5 +18,14 @@
  There are endless debates between org-mode vs markdown. To me the feature set provide by org-mode is just second to none. I use it for GTD, taking notes, logging times. It&amp;#39;s just so natural to come across the idea - &amp;#34;Why can&amp;#39;t I write my blog using org-mode&amp;#34;.</description>
     </item>
     
+    <item>
+      <title>Emacs ruby模式实时求值</title>
+      <link>/posts/using-xmp-with-emacs-ruby-mode/</link>
+      <pubDate>Mon, 16 Nov 2015 23:35:09 +0000</pubDate>
+      
+      <guid>/posts/using-xmp-with-emacs-ruby-mode/</guid>
+      <description>&lt;p&gt;在看John Cinnamond的 &lt;a href=&#34;https://www.youtube.com/watch?v=FDs-sSxo2iY&#34;&gt;Extreme Object-Oriented Ruby&lt;/a&gt;的时候，注意到John在Emacs里实时运行了Ruby代码并且输出了结果。查了一下，这是通过 xmpfilter以及rcodetools、robe实现的。&lt;/p&gt;</description>
+    </item>
+    
   </channel>
 </rss>
