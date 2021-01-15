@@ -1,23 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>窄门</title>
-    <link>/</link>
-    <description>Recent content on 窄门</description>
+    <title>Photos on 窄门</title>
+    <link>/photos/</link>
+    <description>Recent content in Photos on 窄门</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>[Home](/) &amp;#183; Theme [Simpleness](https://github.com/RainerChiang/simpleness) Powered by [Hugo](https://gohugo.io/)</copyright>
-    <lastBuildDate>Tue, 12 Jan 2021 00:00:00 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Moving to Hugo</title>
-      <link>/posts/moving-to-hugo/</link>
-      <pubDate>Tue, 12 Jan 2021 00:00:00 +0000</pubDate>
-      
-      <guid>/posts/moving-to-hugo/</guid>
-      <description>I used to blog with Hexo several years ago but since I&amp;#39;ve picked up the org-mode I&amp;#39;ve almost forgot the markdown syntax.
- There are endless debates between org-mode vs markdown. To me the feature set provide by org-mode is just second to none. I use it for GTD, taking notes, logging times. It&amp;#39;s just so natural to come across the idea - &amp;#34;Why can&amp;#39;t I write my blog using org-mode&amp;#34;.</description>
-    </item>
-    
+    <lastBuildDate>Sat, 12 Dec 2020 00:00:00 +0000</lastBuildDate><atom:link href="/photos/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Sultan Ahmed Mosque</title>
       <link>/photos/istanbul/</link>

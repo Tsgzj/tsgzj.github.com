@@ -53,6 +53,34 @@
     
         
         <url>
+            <loc>/photos/</loc>
+            <lastmod>2020-12-12T00:00:00+00:00</lastmod>
+        </url>
+        
+    
+        
+        <url>
+            <loc>/photos/istanbul/</loc>
+            <lastmod>2020-12-12T00:00:00+00:00</lastmod>
+        </url>
+        
+    
+        
+        <url>
+            <loc>/photos/jellyfish/</loc>
+            <lastmod>2019-09-02T00:00:00+00:00</lastmod>
+        </url>
+        
+    
+        
+        <url>
+            <loc>/photos/mfa/</loc>
+            <lastmod>2016-07-29T00:00:00+00:00</lastmod>
+        </url>
+        
+    
+        
+        <url>
             <loc>/categories/</loc>
         </url>
         
